@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/homeButton"
+        android:icon="@drawable/house_icon"
+        android:orderInCategory="1"
+        android:title="Home"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/browseButton"
+        android:icon="@drawable/search_icon"
+        android:orderInCategory="2"
+        android:title="Browse"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/profileButton"
+        android:icon="@drawable/user_icon"
+        android:orderInCategory="3"
+        android:title="Profile"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/chatbotButton"
+        android:icon="@drawable/chat_bot_icon"
+        android:orderInCategory="4"
+        android:title="Chat Bot"
+        app:showAsAction="ifRoom"/>
+
+</menu>

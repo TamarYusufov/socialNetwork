@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/gray_background"
+    android:padding="20dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/illustrationImageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/cautious_dog_bro"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edit_text_border"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/hint_gray"
+        android:layout_below="@id/illustrationImageView"
+        android:textSize="@dimen/textButtonSize"
+        android:padding="@dimen/textsPaddingValue" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailEditText"
+        android:layout_marginTop="20dp"
+        android:inputType="textPassword"
+        android:background="@drawable/edit_text_border"
+        android:hint="@string/password"
+        android:textColorHint="@color/hint_gray"
+        android:textSize="@dimen/textButtonSize"
+        android:padding="@dimen/textsPaddingValue" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordEditText"
+        android:layout_marginTop="30dp"
+        android:text="@string/log_in"
+        android:backgroundTint="#00FFFFFF"
+        android:textSize="@dimen/textButtonSize"
+        android:textColor="@color/blue_button"
+        android:textStyle="bold"
+        android:padding="@dimen/textsPaddingValue"
+        app:strokeColor="@color/blue_button"
+        app:strokeWidth="5dp"/>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign in"
+        android:textColor="@color/white"
+        android:layout_margin="16dp"
+        app:cornerRadius="16dp"
+        app:backgroundTint="#000051"
+        app:strokeColor="@color/gray_background"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/signInTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not a member yet? Sign in now!"
+        android:textColor="@color/hint_gray"
+        android:textSize="15sp"
+        android:layout_marginEnd="8dp"
+        android:layout_alignBaseline="@id/signUpButton"
+        android:layout_toStartOf="@id/signUpButton" />
+</RelativeLayout>
