@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    android:background="#E3F2FD">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/petImageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/animal_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/deletePetButton"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/petNameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Pet Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/petImageView"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"/>
+
+
+    <TextView
+        android:id="@+id/petKindTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Kind "
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/petImageView"
+        app:layout_constraintTop_toBottomOf="@+id/petNameTextView"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/petGenderTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Gender "
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/petImageView"
+        app:layout_constraintTop_toBottomOf="@+id/petKindTextView"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/petBreedTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Breed "
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/petImageView"
+        app:layout_constraintTop_toBottomOf="@+id/petGenderTextView"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/petBirthDateTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Birth Date "
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/petImageView"
+        app:layout_constraintTop_toBottomOf="@+id/petBreedTextView"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/petAgeTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Age "
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/petImageView"
+        app:layout_constraintTop_toBottomOf="@+id/petBirthDateTextView"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/petWeightTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Weight "
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/petImageView"
+        app:layout_constraintTop_toBottomOf="@+id/petAgeTextView"
+        android:layout_marginTop="8dp" />
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/deletePetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remove Pet"
+        app:layout_constraintTop_toBottomOf="@+id/petWeightTextView"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:backgroundTint="@color/blue_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

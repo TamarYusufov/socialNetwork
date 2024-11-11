@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray_background"
+    tools:context=".activities.pet_owner_home_page.PetOwnerHomePageMainTabFragment">
+
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/trainingImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/dogtrainer_img" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/groomingImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/groomer_img" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/boardingImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/pension_img" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/petStoreImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/petstore_img" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/veterinaryImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/vet_img" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"/>
+</LinearLayout>

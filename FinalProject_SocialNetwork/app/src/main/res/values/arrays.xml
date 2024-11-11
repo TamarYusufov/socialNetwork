@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <string-array name="specialty_list">
+            <item>Choose your specialities</item>
+            <item>Veterinarian</item>
+            <item>Grooming</item>
+            <item>Training</item>
+            <item>Boarding Kennel</item>
+            <item>Pet Store</item>
+        </string-array>
+
+
+
+</resources>

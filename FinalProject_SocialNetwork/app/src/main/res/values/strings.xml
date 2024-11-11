@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">FinalProject_SocialNetwork</string>
+    <string name="sign_up_as_professional">Sign up as professional</string>
+    <string name="sign_up_as_pet_owner">Sign up as pet owner</string>
+    <string name="log_in">Log in</string>
+    <string name="taking_care_of_my_pet_with_petit">Taking care of my pet with petit</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="sign_up">Sign up</string>
+    <string name="enter_password">Enter password</string>
+    <string name="enter_your_full_address">Enter your full address</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_full_name">Enter your full name</string>
+    <string name="choose_your_specialty">Choose your specialty</string>
+    <string name="please_upload_certifications">Please upload certifications</string>
+    <string name="just_to_make_sure">Just to make sure 😊</string>
+    <string name="title_activity_pet_owner_home_page">PetOwner_homePage</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="search">search</string>
+    <string name="welcome">Welcome</string>
+    <string name="user_name">User name</string>
+    <string name="category_title">category title</string>
+    <string name="categories">Categories</string>
+    <string name="featured">Featured</string>
+    <string name="see_all">see all</string>
+    <string name="activities">Activities</string>
+    <string name="place_holder">place Holder</string>
+    <string name="logout">Logout</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_pet">Add Pet</string>
+
+
+</resources>
