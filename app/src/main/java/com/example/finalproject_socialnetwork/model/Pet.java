@@ -13,7 +13,6 @@ public class Pet {
     private String id;
     private String petOwnerUid;
     private String name;
-    //private int imageResourceId;
     private Date birthDate;
     private float weight;
     private String gender;
@@ -86,7 +85,4 @@ public class Pet {
         return birthDate;
     }
 
-//    public int getImageResource() {
-//        return imageResourceId;
-//    }
 }

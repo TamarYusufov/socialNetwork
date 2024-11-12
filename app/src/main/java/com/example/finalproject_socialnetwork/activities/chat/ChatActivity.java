@@ -98,6 +98,7 @@ public class ChatActivity extends AppCompatActivity {
         sendMessageButton = findViewById(R.id.sendMessageButton);
         editTextMessage = findViewById(R.id.editTextMessage);
         recyclerViewMessages = findViewById(R.id.recyclerViewMessages);
+
     }
 
     private void loadUserDataFromFirebase(String otherUserUidExtra, String petIdExtra) {
@@ -361,33 +362,5 @@ public class ChatActivity extends AppCompatActivity {
             }
         }
 
-//        private class ReceivedMessageViewHolder extends RecyclerView.ViewHolder {
-//            private TextView SenderNameText;
-//            private TextView messageContentText;
-//            private TextView timestampText;
-//
-//            public ReceivedMessageViewHolder(@NonNull View itemView) {
-//                super(itemView);
-//                SenderNameText = itemView.findViewById(R.id.senderNameText);
-//                messageContentText = itemView.findViewById(R.id.messageContentText);
-//                timestampText = itemView.findViewById(R.id.timestampText);
-//
-//            }
-//        }
-//
-//        private class SentMessageViewHolder extends RecyclerView.ViewHolder {
-//            private TextView recieverNameText;
-//            private TextView messageContentText;
-//            private TextView timestampText;
-//
-//            public SentMessageViewHolder(@NonNull View itemView) {
-//                super(itemView);
-//
-//                recieverNameText = itemView.findViewById(R.id.recieverNameText);
-//                messageContentText = itemView.findViewById(R.id.messageContentText);
-//                timestampText = itemView.findViewById(R.id.timestampText);
-//
-//            }
-//        }
     }
 }

@@ -179,6 +179,7 @@ public class ChatListFragment extends Fragment {
             User otherUser = getOtherUser(chat);
 
             holder.otherUserNameText.setText(String.format("With %s" , otherUser.getName()));
+            holder.otherUserPhoneText.setText(String.format("Contact phone: %s" , otherUser.getPhone()));
             holder.petDetailsText.setText(String.format("About %s, the %s, %s", pet.getName(), pet.getBreed() , pet.getKind()));
             FirebaseUtils.initUserProfileImageView(holder.otherUserImageView, otherUser.getUid());
 
@@ -203,6 +204,7 @@ public class ChatListFragment extends Fragment {
             private CircleImageView otherUserImageView;
             private TextView petDetailsText;
             private TextView otherUserNameText;
+            private TextView otherUserPhoneText;
 
             public ChatViewHolder(@NonNull View itemView) {
                 super(itemView);
@@ -210,6 +212,7 @@ public class ChatListFragment extends Fragment {
                 otherUserImageView = itemView.findViewById(R.id.otherUserImageView);
                 petDetailsText = itemView.findViewById(R.id.petDetailsText);
                 otherUserNameText = itemView.findViewById(R.id.otherUserNameText);
+                otherUserPhoneText = itemView.findViewById(R.id.otherUserPhoneText);
             }
         }
     }

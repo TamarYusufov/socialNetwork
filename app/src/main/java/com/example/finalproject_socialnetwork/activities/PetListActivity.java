@@ -105,22 +105,19 @@ public class PetListActivity extends AppCompatActivity {
         Pet pet = petList.get(petIndex);
         FirebaseDatabase.getInstance().getReference().child(FirebaseUtils.PETS_REALTIME_DB_PATH)
                 .child(pet.getId()).removeValue()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()) {
-                            Toast.makeText(PetListActivity.this,
-                                    "Pet successfully removed",
-                                    Toast.LENGTH_LONG).show();
+                .addOnCompleteListener(task -> {
+                    if(task.isSuccessful()) {
+                        Toast.makeText(PetListActivity.this,
+                                "Pet successfully removed",
+                                Toast.LENGTH_LONG).show();
 
-                            FirebaseStorage.getInstance().getReference()
-                                    .child(FirebaseUtils.PETS_STORAGE_DB_PATH).child(pet.getId())
-                                    .delete();
-                        } else {
-                            Toast.makeText(PetListActivity.this,
-                                    "Failed removing pet, please try again",
-                                    Toast.LENGTH_LONG).show();
-                        }
+                        FirebaseStorage.getInstance().getReference()
+                                .child(FirebaseUtils.PETS_STORAGE_DB_PATH).child(pet.getId())
+                                .delete();
+                    } else {
+                        Toast.makeText(PetListActivity.this,
+                                "Failed removing pet, please try again",
+                                Toast.LENGTH_LONG).show();
                     }
                 });
     }
