@@ -59,8 +59,8 @@ To get a local copy up and running, follow these steps.
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/SocialNetwork.git
-   cd SocialNetwork
+   git clone https://github.com/your-username/socialNetwork.git
+   cd socialNetwork
 
  ###  Open the Project in Android Studio:
 
