@@ -4,7 +4,7 @@
 
 This app connects pet owners with professionals who provide various pet-related services. Users can register as either pet owners or professionals, manage profiles, add pets, chat, and share insights about pet care.
 
-
+https://github.com/TamarYusufov/socialNetwork/issues/1#issue-2655226205
 ---
 
 ## Features
