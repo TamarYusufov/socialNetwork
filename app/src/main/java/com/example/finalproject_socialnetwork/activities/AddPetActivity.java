@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -179,21 +180,46 @@ public class AddPetActivity extends AppCompatActivity {
     }
 
     private void showDatePicker() {
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        DatePickerDialog datePickerDialog = new DatePickerDialog(AddPetActivity.this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                birthDatePickedText.setText(MessageFormat.format("{0}/{1}/{2}", String.valueOf(year),
-                        String.valueOf(month+1), String.valueOf(dayOfMonth)));
-                birthDate = new Date(day, month + 1, year);
+//            Calendar calendar = Calendar.getInstance();
+//            int year = calendar.get(Calendar.YEAR);
+//            int month = calendar.get(Calendar.MONTH);
+//            int day = calendar.get(Calendar.DAY_OF_MONTH);
+//
+//            DatePickerDialog datePickerDialog = new DatePickerDialog(AddPetActivity.this, new DatePickerDialog.OnDateSetListener() {
+//                @Override
+//                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//                    birthDatePickedText.setText(String.format("%02d/%02d/%04d", dayOfMonth, month + 1, year));
+//
+//                    birthDate = new Date(dayOfMonth, month + 1, year);
+//                }
+//            }, year, month, day);
+//
+//            datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+//            datePickerDialog.show();
 
-            }
-        }, year, month ,day);
-        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
-        datePickerDialog.show();
+            Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(AddPetActivity.this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    birthDatePickedText.setText(String.format("%02d/%02d/%04d", dayOfMonth, month + 1, year));
+
+
+                    birthDate = new Date(dayOfMonth, month + 1, year);
+
+               //     Log.d("DatePicker", "Selected Date for saving: " + birthDate.toString());
+
+                }
+            }, year, month, day);
+
+            datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+            datePickerDialog.show();
+
+
+
     }
 
 

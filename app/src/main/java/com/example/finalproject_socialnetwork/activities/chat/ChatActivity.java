@@ -223,6 +223,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private void initLayout() {
         FirebaseUtils.initPetImageView(petImageView, pet.getId());
+        String petID = pet.getId();
         petNameText.setText(pet.getName());
         partnerNameText.setText(otherUser.getName());
 
@@ -251,6 +252,8 @@ public class ChatActivity extends AppCompatActivity {
         return currentUser.getUid().equals(uid) ? currentUser : otherUser;
     }
 
+
+   //Dialog to show pet details in the chat
     private void onTopLinearLayoutClick() {
         if(pet == null) { // not loaded yet
             return;

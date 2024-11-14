@@ -176,7 +176,7 @@ public class ProfessionalListActivity extends AppCompatActivity {
             }
         });
 
-        for(Pet pet: petOwnerPetMap.values()) {
+        for (Pet pet : petsSortedByName) {
             arrayAdapter.add(pet.getName());
         }
 

@@ -180,7 +180,7 @@ public class ChatListFragment extends Fragment {
 
             holder.otherUserNameText.setText(String.format("With %s" , otherUser.getName()));
             holder.otherUserPhoneText.setText(String.format("Contact phone: %s" , otherUser.getPhone()));
-            holder.petDetailsText.setText(String.format("About %s, the %s, %s", pet.getName(), pet.getBreed() , pet.getKind()));
+            holder.petDetailsText.setText(String.format("About %s, the %s breed %s", pet.getName(), pet.getBreed(), pet.getKind()));
             FirebaseUtils.initUserProfileImageView(holder.otherUserImageView, otherUser.getUid());
 
             holder.rootView.setOnClickListener(v -> onChatClicked(chat));
