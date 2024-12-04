@@ -223,7 +223,6 @@ public class ChatActivity extends AppCompatActivity {
 
     private void initLayout() {
         FirebaseUtils.initPetImageView(petImageView, pet.getId());
-        String petID = pet.getId();
         petNameText.setText(pet.getName());
         partnerNameText.setText(otherUser.getName());
 

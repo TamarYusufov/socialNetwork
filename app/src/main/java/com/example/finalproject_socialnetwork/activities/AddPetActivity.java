@@ -8,9 +8,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -75,24 +77,58 @@ public class AddPetActivity extends AppCompatActivity {
         startActivityForResult(intent, GALLERY_REQUEST_CODE);
     }
 
+//     private void uploadPetBitmap(Bitmap bitmap, String petId) {
+//        if(!FirebaseUtils.assertUserSignedIn(this)) {
+//            return;
+//        }
+//
+//        ProgressDialog progressDialog = new ProgressDialog(this);
+//        progressDialog.setMessage("Uploading profile image, please wait ..");
+//        progressDialog.setCancelable(false);
+//        progressDialog.show();
+//
+//        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+//        byte[] bytes = bos.toByteArray();
+//        FirebaseStorage.getInstance().getReference()
+//                .child(FirebaseUtils.PETS_STORAGE_DB_PATH).child(petId)
+//                .putBytes(bytes)
+//                .addOnCompleteListener(task -> {
+//                    if(task.isSuccessful()) {
+//                        Toast.makeText(AddPetActivity.this,
+//                                "Pet image uploaded successfully",
+//                                Toast.LENGTH_LONG).show();
+//                        finish();
+//                    } else {
+//                        Toast.makeText(AddPetActivity.this,
+//                                "Pet image upload failed",
+//                                Toast.LENGTH_LONG).show();
+//                    }
+//
+//                    progressDialog.dismiss();
+//                });
+//
+//    }
+
     private void uploadPetBitmap(Bitmap bitmap, String petId) {
-        if(!FirebaseUtils.assertUserSignedIn(this)) {
+        if (!FirebaseUtils.assertUserSignedIn(this)) {
             return;
         }
 
-        ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Uploading profile image, please wait ..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
         byte[] bytes = bos.toByteArray();
+
         FirebaseStorage.getInstance().getReference()
                 .child(FirebaseUtils.PETS_STORAGE_DB_PATH).child(petId)
                 .putBytes(bytes)
                 .addOnCompleteListener(task -> {
-                    if(task.isSuccessful()) {
+                    progressBar.setVisibility(View.GONE);
+
+                    if (task.isSuccessful()) {
                         Toast.makeText(AddPetActivity.this,
                                 "Pet image uploaded successfully",
                                 Toast.LENGTH_LONG).show();
@@ -102,11 +138,9 @@ public class AddPetActivity extends AppCompatActivity {
                                 "Pet image upload failed",
                                 Toast.LENGTH_LONG).show();
                     }
-
-                    progressDialog.dismiss();
                 });
-
     }
+
 
     @Override
     protected void onResume() {

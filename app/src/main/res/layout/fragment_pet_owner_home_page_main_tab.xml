@@ -22,28 +22,28 @@
             android:gravity="center">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/trainingImageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/category_circle_size"
+                android:layout_height="@dimen/category_circle_size"
                 android:src="@drawable/dogtrainer_img" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/groomingImageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/category_circle_size"
+                android:layout_height="@dimen/category_circle_size"
                 android:src="@drawable/groomer_img" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/boardingImageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/category_circle_size"
+                android:layout_height="@dimen/category_circle_size"
                 android:src="@drawable/pension_img" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/petStoreImageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/category_circle_size"
+                android:layout_height="@dimen/category_circle_size"
                 android:src="@drawable/petstore_img" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/veterinaryImageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/category_circle_size"
+                android:layout_height="@dimen/category_circle_size"
                 android:src="@drawable/vet_img" />
         </LinearLayout>
     </HorizontalScrollView>
