@@ -78,7 +78,7 @@ public class AddPetActivity extends AppCompatActivity {
                 }
         );
 
-         findViews();
+        findViews();
         saveButton.setOnClickListener(view -> onSaveButtonClick());
         selectDatePickerButton.setOnClickListener(view -> showDatePicker());
         uploadImageButton.setOnClickListener(view -> openGallery());
