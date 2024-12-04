@@ -1,5 +1,6 @@
 package com.example.finalproject_socialnetwork.activities;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -18,6 +19,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -58,12 +61,22 @@ public class AddPetActivity extends AppCompatActivity {
     private Bitmap bitmap;
     private Date birthDate;
     private Uri imageUri;
-
+    private ActivityResultLauncher<Intent> galleryLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pet);
+
+        galleryLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                        imageUri = result.getData().getData();
+
+                    }
+                }
+        );
 
          findViews();
         saveButton.setOnClickListener(view -> onSaveButtonClick());
@@ -71,11 +84,14 @@ public class AddPetActivity extends AppCompatActivity {
         uploadImageButton.setOnClickListener(view -> openGallery());
 
     }
+
     private void openGallery() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/*");
-        startActivityForResult(intent, GALLERY_REQUEST_CODE);
+       // startActivityForResult(intent, GALLERY_REQUEST_CODE);
+        galleryLauncher.launch(intent);
     }
+
 
 //     private void uploadPetBitmap(Bitmap bitmap, String petId) {
 //        if(!FirebaseUtils.assertUserSignedIn(this)) {
