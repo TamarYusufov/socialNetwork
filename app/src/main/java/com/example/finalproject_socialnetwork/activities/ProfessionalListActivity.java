@@ -23,6 +23,7 @@ import com.example.finalproject_socialnetwork.model.Pet;
 import com.example.finalproject_socialnetwork.model.Professional;
 import com.example.finalproject_socialnetwork.model.User;
 import com.example.finalproject_socialnetwork.model.utilities.FirebaseUtils;
+import com.google.android.gms.maps.MapView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;

@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import com.example.finalproject_socialnetwork.activities.usersAuth.PetOwnerSignUpActivity;
 
+import java.text.SimpleDateFormat;
+
 public class ProjectUtils {
 
 
@@ -18,6 +20,13 @@ public class ProjectUtils {
 
     }
 
+    public static String getHourMinuteSecondTimeStampTimeString(long timestamp) {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        return sdf.format(new java.util.Date(timestamp));
+    }
 
-
+    public static String getHourDateMinuteTimeStampTimeString(long timestamp) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        return sdf.format(new java.util.Date(timestamp));
+    }
 }

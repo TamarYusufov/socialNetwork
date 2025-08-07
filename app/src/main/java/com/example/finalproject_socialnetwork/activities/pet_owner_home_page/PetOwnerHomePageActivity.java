@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,9 +21,11 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.finalproject_socialnetwork.R;
 import com.example.finalproject_socialnetwork.activities.chat.ChatListFragment;
+import com.example.finalproject_socialnetwork.model.Date;
 import com.example.finalproject_socialnetwork.model.PetOwner;
 import com.example.finalproject_socialnetwork.model.Professional;
 import com.example.finalproject_socialnetwork.model.utilities.FirebaseUtils;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
@@ -33,12 +36,14 @@ import java.io.IOException;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PetOwnerHomePageActivity extends AppCompatActivity {
-    public static final int GALLERY_REQUEST_CODE = 1;
+    public static final int PET_OWNER_PROFILE_TAB_GALLERY_REQUEST_CODE = 1;
+    public static final int REPORT_MISSING_PET_GALLERY_REQUEST_CODE = 2;
 
     private TextView welcomeTextView;
     private CircleImageView userProfileImageView;
     private TabLayout tabLayout;
     private ViewPager2 viewPager;
+    private Bitmap foundPetBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,14 @@ public class PetOwnerHomePageActivity extends AppCompatActivity {
         if(FirebaseUtils.assertUserSignedIn(this)) {
             initWelcomeUserName();
         }
+    }
+
+    public Bitmap getFoundPetBitmap() {
+        return foundPetBitmap;
+    }
+
+    public void setFoundPetBitmap(Bitmap foundPetBitmap) {
+        this.foundPetBitmap = foundPetBitmap;
     }
 
     private void initWelcomeUserName() {
@@ -78,7 +91,7 @@ public class PetOwnerHomePageActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         switch (requestCode) {
-            case GALLERY_REQUEST_CODE:
+            case PET_OWNER_PROFILE_TAB_GALLERY_REQUEST_CODE:
                 if(resultCode == RESULT_OK) {
                     Uri imageUri = data.getData();
 
@@ -94,6 +107,23 @@ public class PetOwnerHomePageActivity extends AppCompatActivity {
                     Toast.makeText(this, "Image selection failed, please try again",
                             Toast.LENGTH_LONG).show();
                 }
+            case REPORT_MISSING_PET_GALLERY_REQUEST_CODE:
+                if(resultCode == RESULT_OK) {
+                    Uri imageUri = data.getData();
+
+                    try {
+                        foundPetBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),
+                                imageUri);
+                        Toast.makeText(this, "Image selected", Toast.LENGTH_LONG).show();
+                    } catch (IOException e) {
+                        Toast.makeText(this, "Image selection failed, please try again",
+                                Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(this, "Image selection failed, please try again",
+                            Toast.LENGTH_LONG).show();
+                }
+                break;
             default:
                 super.onActivityResult(requestCode, resultCode, data);
         }
@@ -157,6 +187,12 @@ public class PetOwnerHomePageActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+
+                if(tab.getPosition() == 3) {
+                    viewPager.setUserInputEnabled(false);
+                } else {
+                    viewPager.setUserInputEnabled(true);
+                }
             }
 
             @Override
@@ -180,7 +216,7 @@ public class PetOwnerHomePageActivity extends AppCompatActivity {
         });
     }
 
-    private static class ViewPageAdapter extends FragmentStateAdapter {
+    private class ViewPageAdapter extends FragmentStateAdapter {
         private PetOwnerProfileTabFragment lastPetOwnerProfileTabFragment;
 
         public ViewPageAdapter(@NonNull FragmentActivity fragmentActivity) {
@@ -200,7 +236,7 @@ public class PetOwnerHomePageActivity extends AppCompatActivity {
                     return lastPetOwnerProfileTabFragment;
                 case 3:
                 default:
-                   return new PetOwnerHomePageMainTabFragment();
+                   return new ReportMissingPetFragment();
             }
         }
 

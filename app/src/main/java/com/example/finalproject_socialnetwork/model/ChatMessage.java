@@ -40,9 +40,4 @@ public class ChatMessage {
     public long getTimestamp() {
         return timestamp;
     }
-
-    public String timeStampTimeString() {
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-        return sdf.format(new java.util.Date(timestamp));
-    }
 }

@@ -27,6 +27,7 @@ import com.example.finalproject_socialnetwork.model.PetOwner;
 import com.example.finalproject_socialnetwork.model.Professional;
 import com.example.finalproject_socialnetwork.model.User;
 import com.example.finalproject_socialnetwork.model.utilities.FirebaseUtils;
+import com.example.finalproject_socialnetwork.model.utilities.ProjectUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
@@ -342,7 +343,7 @@ public class ChatActivity extends AppCompatActivity {
 
             holder.senderNameText.setText(getUserByUid(chatMessage.getAuthorUid()).getName());
             holder.messageContentText.setText(chatMessage.getContent());
-            holder.timestampText.setText(chatMessage.timeStampTimeString());
+            holder.timestampText.setText(ProjectUtils.getHourMinuteSecondTimeStampTimeString(chatMessage.getTimestamp()));
         }
 
         @Override

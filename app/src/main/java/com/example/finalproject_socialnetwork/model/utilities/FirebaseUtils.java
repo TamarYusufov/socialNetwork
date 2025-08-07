@@ -29,9 +29,12 @@ public class FirebaseUtils {
     public static final String USERS_REALTIME_DB_PATH = "users";
     public static final String PETS_REALTIME_DB_PATH = "pets";
     public static final String CHATS_REALTIME_DB_PATH = "chats";
+    public static final String FOUND_PET_REPORTS_REALTIME_DB_PATH = "found_pet_reports";
     public static final String CHAT_MESSAGES_REALTIME_DB_PATH = "chat_messages";
     public static final String USERS_STORAGE_DB_PATH = "images/users";
     public static final String PETS_STORAGE_DB_PATH = "images/pets";
+    public static final String PROFESSIONAL_DOCUMENT_STORAGE_DB_PATH = "documents/professional";
+    public static final String FOUND_PET_REPORTS_STORAGE_DB_PATH = "images/found_pet_reports";
 
     public static boolean isSignedIn() {
         return FirebaseAuth.getInstance().getCurrentUser() != null;
@@ -101,6 +104,22 @@ public class FirebaseUtils {
                     if(task.isSuccessful()) {
                         Bitmap bitmap = BitmapFactory.decodeByteArray(task.getResult(), 0, task.getResult().length);
                         userProfileImageView.setImageBitmap(bitmap);
+                    }
+
+                    // no image, bad internet connection
+
+                });
+    }
+
+    public static void initFoundPetReportImageView(CircleImageView foundPetReportImageView, String reportId) {
+        FirebaseStorage.getInstance().getReference()
+                .child(FirebaseUtils.FOUND_PET_REPORTS_STORAGE_DB_PATH).child(reportId)
+                // 2 ^ 10 * 2^ 10 * 10= 2^20 * 10 = 1Mb * 10 = 10MB
+                .getBytes(1024 * 1024 * 10)
+                .addOnCompleteListener(task -> {
+                    if(task.isSuccessful()) {
+                        Bitmap bitmap = BitmapFactory.decodeByteArray(task.getResult(), 0, task.getResult().length);
+                        foundPetReportImageView.setImageBitmap(bitmap);
                     }
 
                     // no image, bad internet connection

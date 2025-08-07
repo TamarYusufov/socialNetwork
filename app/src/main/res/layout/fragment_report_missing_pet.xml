@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.pet_owner_home_page.ReportMissingPetFragment">
+
+   <com.google.android.gms.maps.MapView
+       android:id="@+id/mapView"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="0.5"/>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="0.5"
+       android:orientation="vertical"
+       android:gravity="center"
+       android:padding="14dp">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="0.8"
+         android:orientation="vertical">
+         <EditText
+             android:id="@+id/addressEditText"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:enabled="false"
+             android:hint="Mark location on the map"/>
+         <EditText
+             android:id="@+id/descriptionEditText"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:hint="Enter a short description"
+             android:layout_marginTop="12dp"/>
+         <com.google.android.material.button.MaterialButton
+             android:id="@+id/uploadImageButton"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:layout_marginBottom="48dp"
+             android:backgroundTint="@color/blue_button"
+             android:paddingStart="72dp"
+             android:paddingEnd="72dp"
+             android:text="Select pet Image"
+             android:textAllCaps="false"
+             android:textColor="@color/white"
+             android:textSize="16sp"
+             android:visibility="visible"
+             android:layout_marginTop="12dp"/>
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="0.2">
+
+         <com.google.android.material.button.MaterialButton
+             android:id="@+id/reportMissingPetButton"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:backgroundTint="@color/transparent"
+             android:paddingStart="72dp"
+             android:paddingEnd="72dp"
+             android:text="Report found pet"
+             android:textAllCaps="false"
+             android:textColor="@color/blue_button"
+             android:textSize="24sp"
+             android:visibility="visible"
+             app:strokeWidth="5dp"
+             app:strokeColor="@color/blue_button"/>
+      </LinearLayout>
+   </LinearLayout>
+
+</LinearLayout>

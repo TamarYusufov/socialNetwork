@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViews();
-    //    startActivity(new Intent(this, PetOwnerHomePageActivity.class));
-   //    if(1==1)return;
+//        startActivity(new Intent(this, PetOwnerHomePageActivity.class));
+
         loginButton.setOnClickListener(view -> switchActivity(1));
         petOwnerButton.setOnClickListener(view -> switchActivity(2));
         professionalButton.setOnClickListener(view -> switchActivity(3));

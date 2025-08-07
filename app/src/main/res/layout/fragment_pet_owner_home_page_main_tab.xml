@@ -47,13 +47,9 @@
                 android:src="@drawable/vet_img" />
         </LinearLayout>
     </HorizontalScrollView>
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/foundPetReportRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.3"/>
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.3"/>
+        android:layout_weight="0.7"/>
 </LinearLayout>

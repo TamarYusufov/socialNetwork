@@ -33,6 +33,10 @@ public abstract class User {
         return uid;
     }
 
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
     public String getType() {
         return type;
     }

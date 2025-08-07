@@ -36,6 +36,7 @@ public class Professional extends User {
 
     private String speciality;
     private boolean approved;
+
     //certifications ???
 
     // for firebase

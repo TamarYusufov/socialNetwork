@@ -87,7 +87,7 @@
         android:id="@+id/tv_upload_certifications"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/please_upload_certifications"
+        android:text= "@string/please_upload_certifications"
         android:textSize="20sp"
         android:textColor="@color/blue_button"
         android:textStyle="bold"

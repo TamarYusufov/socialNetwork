@@ -84,15 +84,23 @@ public class LogInActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             FirebaseDatabase.getInstance().getReference().child(FirebaseUtils.USERS_REALTIME_DB_PATH)
                                     .child(FirebaseAuth.getInstance().getUid())
-                                    .child("type").addListenerForSingleValueEvent(new ValueEventListener() {
+                                    .addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            String type = snapshot.getValue(String.class);
-                                            Toast.makeText(LogInActivity.this, type, Toast.LENGTH_LONG).show();
+                                            String type = snapshot.child("type").getValue(String.class);
 
                                             switch (type) {
                                                 case "PROFESSIONAL":
-                                                    switchActivity(LogInActivity.this,ProfessionalHomePageActivity.class);
+                                                    boolean approved = snapshot.child("approved").getValue(Boolean.class);
+
+                                                    if(!approved) {
+                                                        Toast.makeText(LogInActivity.this,
+                                                                "You can only sign in once your document is approved", Toast.LENGTH_LONG).show();
+                                                        FirebaseAuth.getInstance().signOut();
+                                                    } else {
+                                                        switchActivity(LogInActivity.this,ProfessionalHomePageActivity.class);
+                                                    }
+
                                                     break;
 
                                                 case "PET_OWNER":

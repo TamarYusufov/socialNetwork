@@ -13,7 +13,7 @@
     <string name="enter_your_email">Enter your email</string>
     <string name="enter_your_full_name">Enter your full name</string>
     <string name="choose_your_specialty">Choose your specialty</string>
-    <string name="please_upload_certifications">Please upload certifications</string>
+    <string name="please_upload_certifications">Please upload certifications (PDF format)</string>
     <string name="just_to_make_sure">Just to make sure 😊</string>
     <string name="title_activity_pet_owner_home_page">PetOwner_homePage</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
